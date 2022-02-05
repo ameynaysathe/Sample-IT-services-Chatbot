@@ -1,0 +1,66 @@
+version: "3.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: sad path 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: IT_services
+  - action: utter_services
+  - action: utter_ask_looking_for
+  - intent: categories
+  - action: action_receive_user_interest
+  - slot_was_set:
+      - looking_for: "web development"
+  - action: utter_ask_name
+  - intent: my_name_is
+  - action: action_receive_name
+  - slot_was_set:
+      - name: "amey naysathe"
+  - action: utter_ask_phone_no
+  - intent: my_phone_no_is
+  - action: action_receive_phone_number
+  - slot_was_set:
+      - phone_no: "9011301563"
+  - action: utter_ask_email_id
+  - intent: email_id
+  - action: action_receive_email_id
+  - slot_was_set:
+      - email_id: "ameynaysathe@gmail.com"
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: action_email
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: denyyy_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: not_interested
+  - action: utter_all_right
+  - action: utter_details
+  - action: utter_for_sweet_name
+  - intent: my_name_is
+  - action: action_receive_name
+  - slot_was_set:
+      - name: "Rohit sharma"
+  - action: utter_for_Mobile_number
+  - intent: my_phone_no_is
+  - action: action_receive_phone_number
+  - slot_was_set:
+      - phone_no: "8748598329"
+  - action: utter_for_mail_id
+  - intent: email_id
+  - action: action_receive_email_id
+  - slot_was_set:
+      - email_id: "elonmask@gmail.com"
+  - action: utter_slots_values
+  - action: utter_thanks_again
+  - action: action_email
